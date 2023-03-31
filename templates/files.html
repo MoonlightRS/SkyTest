@@ -1,0 +1,10 @@
+<h1>List files</h1>
+{% for file in files %}
+<div>
+    {{ file[1] }} - {{ file[2] }}
+    {% if file[2] == 'new' %}
+    <a href="{{ url_for('delete', filename=file[1]) }}">delete</a>
+    {% endif %}
+</div>
+{% endfor %}
+<p><a href="{{ url_for('clear') }}">Clear list</a></p>

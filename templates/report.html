@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Report</h2>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>File</th>
+        <th>Checked at</th>
+        <th>Result</th>
+        <th>Email Sent</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for log in checked_files %}
+    <tr>
+        <td>{{ log.file.file.name }}</td>
+        <td>{{ log.checked_at }}</td>
+        <td>{{ log.result }}</td>
+        <td>
+            {% if log.email_sent %}
+            Yes
+            {% else %}
+            No
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
